@@ -1,7 +1,8 @@
 import ExpenseItem from './ExpenseItem'
 import './Expense.css'
 import Card from "./Card"
-function Expense(props){
+
+const Expense = (props) => {
   
   const expenseItems = props.expense.map( (ei) => {
     return (<ExpenseItem title={ei.title} date={ei.date} amount={ei.amount}></ExpenseItem>)
