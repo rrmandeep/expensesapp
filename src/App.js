@@ -24,10 +24,14 @@ function App() {
     }
   ]
 
+  const addNewExpense = (expense) => {
+    console.log("App,js")
+    console.log(expense)
+  }
 
   return (
     <div>
-      <NewExpense />
+      <NewExpense onNewExpense={addNewExpense} />
       <Expense expense={expenses}/>  
     </div>
   );
