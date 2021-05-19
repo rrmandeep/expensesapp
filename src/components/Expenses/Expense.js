@@ -6,16 +6,31 @@ import './Expense.css'
 
 const Expense = (props) => {
   
-  const expenseItems = props.expense.map( (ei) => {
-    return (<ExpenseItem title={ei.title} date={ei.date} amount={ei.amount}></ExpenseItem>)
-  })
-
   const [yearselected, setSelectedYear] = useState("2020");
 
   const getYear = (selectedyear) => {   
     setSelectedYear(selectedyear)
-    //console.log(selectedyear)
   }
+  
+  const filteredExpense = props.expense.filter((expense) => {
+    return expense.date.getFullYear().toString() === yearselected
+  })
+  
+  
+  
+  
+  const expenseItems = filteredExpense.map( (ei) => {
+    return (<ExpenseItem
+        key={ei.id} 
+        title={ei.title} 
+        date={ei.date} 
+        amount={ei.amount}>
+      </ExpenseItem>)
+  })
+
+  
+
+
   return(
     <div>    
       <Card className="expenses">
